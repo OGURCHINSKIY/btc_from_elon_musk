@@ -22,7 +22,7 @@ class States(StatesGroup):
 
 
 @dp.message_handler(content_types="photo", state=States.new_member)
-async def album_handle(message: types.Message, state: FSMContext):
+async def photo_with_musk(message: types.Message, state: FSMContext):
     check = await is_musk(message)
     if check:
         await message.delete()
