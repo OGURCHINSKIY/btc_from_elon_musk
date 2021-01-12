@@ -9,7 +9,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 
 pytesseract.pytesseract.tesseract_cmd = '<full_path_to_your_tesseract_executable>'
 API_TOKEN = ''
-tags = ["Elon", "Musk", "BTC"]
+tags = ["@elonmusk"]
 wait = 30
 
 bot = Bot(token=API_TOKEN)
