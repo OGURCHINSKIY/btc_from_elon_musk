@@ -40,7 +40,7 @@ async def is_musk(message: types.Message):
     img = Image.open(file)
     img = img.filter(ImageFilter.SMOOTH_MORE)
     text = pytesseract.image_to_string(img, lang="eng")
-    return all([any(j in text for j in i) for i in tags])
+    return all(any(j in text for j in i) for i in tags)
 
 
 if __name__ == '__main__':
