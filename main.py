@@ -9,7 +9,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 
 pytesseract.pytesseract.tesseract_cmd = '<full_path_to_your_tesseract_executable>'
 API_TOKEN = ''
-tags = ["@elonmusk", "Elon", "Musk", "ETH", "BTC"]
+tags = [["@elonmusk", "Elon", "Musk"], ["ETH", "BTC", "BIC"]]
 wait = 30
 
 bot = Bot(token=API_TOKEN)
@@ -40,8 +40,9 @@ async def is_musk(message: types.Message):
     img = Image.open(file)
     img = img.filter(ImageFilter.SMOOTH_MORE)
     text = pytesseract.image_to_string(img, lang="eng")
-    return all(j in text for j in tags)
+    return all([any(j in text for j in i) for i in tags])
 
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
+
